@@ -1,0 +1,36 @@
+
+#define IN3 5   // Motor Direction 1
+#define IN4 6   // Motor Direction 2
+#define EN 9    // Enable Pin (PWM for Speed Control)
+#define MOTOR_SPEED 60  // Speed (0-255)
+
+void setup() {
+    pinMode(IN3, OUTPUT);
+    pinMode(IN4, OUTPUT);
+    pinMode(EN, OUTPUT);
+  
+    analogWrite(EN, MOTOR_SPEED);  // Set speed
+}
+
+void loop() {
+    // Move forward
+    digitalWrite(IN3, HIGH);
+    digitalWrite(IN4, LOW);
+    delay(500);  // Run for 5 sec
+
+    // Stop motor
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, LOW);
+    delay(2000);
+
+    // Move backward
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+    delay(500);
+
+    // Stop motor
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, LOW);
+    delay(2000);
+}
+
